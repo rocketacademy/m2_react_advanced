@@ -10,31 +10,22 @@ import NoPage from "./Components/NoPage";
 import Friends from "./Components/Friends";
 import Profile from "./Components/Profile";
 
-export const UserContext = React.createContext(null);
-
-const user = {
-  email: "sam@sam.com",
-  uid: 12,
-};
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <UserContext.Provider value={user}>
-      <Link to="/">Home</Link>
-      <Link to="/products">Products</Link>
-      <Link to="/users">Users</Link>
+    <Link to="/">Home</Link>
+    <Link to="/products">Products</Link>
+    <Link to="/users">Users</Link>
 
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/users" element={<Users />}>
-          <Route path="friends" element={<Friends />} />
-          <Route path="profile" element={<Profile />} />
-        </Route>
-        <Route path="*" element={<NoPage />} />
-      </Routes>
-    </UserContext.Provider>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/users" element={<Users />}>
+        <Route path="friends" element={<Friends />} />
+        <Route path="profile" element={<Profile />} />
+      </Route>
+      <Route path="*" element={<NoPage />} />
+    </Routes>
   </BrowserRouter>
 );
 
